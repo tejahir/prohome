@@ -3,11 +3,14 @@ import { useState } from "react";
 export default function BookFlow() {
   const [step, setStep] = useState(1);
   const [quantity, setQuantity] = useState(1);
+
   const [address, setAddress] = useState({
     name: "",
     mobile: "",
     address: "",
   });
+
+  const [error, setError] = useState(""); // ✅ NEW
 
   const books = [
     {
@@ -51,19 +54,23 @@ export default function BookFlow() {
 
   const [selectedBook, setSelectedBook] = useState(books[0]);
 
+  const isAddressValid =
+    address.name && address.mobile && address.address; // ✅ NEW
+
   return (
-    <div className="min-h-158 rounded-2xl bg-[#0b1225] border-r border-white/10 flex items-center justify-center p-4">
+    <div className="min-w-298 rounded-2xl h-146 bg-[#0b1225] flex items-center justify-center p-4">
       <div className="w-full max-w-4xl bg-gray-300 rounded-2xl shadow p-6">
 
+        {/* STEPS */}
         <div className="flex justify-between mb-6 text-sm font-medium">
           {["Details", "Buy", "Address", "Confirm"].map((label, i) => (
             <div
               key={i}
               onClick={() => setStep(i + 1)}
-              className={`flex-1 text-center py-2 rounded-xl mx-1 cursor-pointer transition ${
+              className={`flex-1 text-center py-2 rounded-xl mx-1 cursor-pointer ${
                 step === i + 1
                   ? "bg-blue-600 text-white"
-                  : "bg-gray-200 text-gray-800 hover:bg-gray-300"
+                  : "bg-gray-200"
               }`}
             >
               {label}
@@ -71,6 +78,7 @@ export default function BookFlow() {
           ))}
         </div>
 
+        {/* STEP 1 */}
         {step === 1 && (
           <div>
             <h2 className="text-2xl font-bold mb-6">Books Collection</h2>
@@ -83,7 +91,7 @@ export default function BookFlow() {
                     setQuantity(1);
                     setStep(2);
                   }}
-                  className="bg-gray-50 rounded-xl shadow hover:shadow-lg cursor-pointer transition p-3"
+                  className="bg-gray-50 rounded-xl shadow cursor-pointer p-3"
                 >
                   <img
                     src={book.image}
@@ -99,48 +107,25 @@ export default function BookFlow() {
           </div>
         )}
 
+        {/* STEP 2 */}
         {step === 2 && (
           <div>
-            <h2 className="text-xl font-bold mb-2">{selectedBook.title}</h2>
-            <p className="text-gray-600 mb-4">₹{selectedBook.price}</p>
+            <h2 className="text-xl font-bold">{selectedBook.title}</h2>
+            <p className="mb-4">₹{selectedBook.price}</p>
 
-            <div className="flex items-center gap-4 mb-6">
-              <button
-                onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                className="px-4 py-2 bg-gray-200 rounded-xl"
-              >
-                -
-              </button>
-              <span className="text-lg font-semibold">{quantity}</span>
-              <button
-                onClick={() => setQuantity(quantity + 1)}
-                className="px-4 py-2 bg-gray-200 rounded-xl"
-              >
-                +
-              </button>
+            <div className="flex gap-4 mb-6">
+              <button onClick={() => setQuantity(Math.max(1, quantity - 1))}>-</button>
+              <span>{quantity}</span>
+              <button onClick={() => setQuantity(quantity + 1)}>+</button>
             </div>
 
-            <p className="mb-4 font-medium">
-              Total: ₹{selectedBook.price * quantity}
-            </p>
-
-            <div className="flex gap-4">
-              <button
-                onClick={() => setStep(1)}
-                className="px-5 py-2 bg-gray-300 rounded-xl"
-              >
-                Back
-              </button>
-              <button
-                onClick={() => setStep(3)}
-                className="px-5 py-2 bg-blue-600 text-white rounded-xl"
-              >
-                Continue
-              </button>
-            </div>
+            <button onClick={() => setStep(3)} className="bg-blue-600 text-white px-5 py-2 rounded-xl">
+              Continue
+            </button>
           </div>
         )}
 
+        {/* STEP 3 */}
         {step === 3 && (
           <div>
             <h2 className="text-xl font-bold mb-4">Delivery Address</h2>
@@ -150,38 +135,57 @@ export default function BookFlow() {
                 className="w-full p-3 border rounded-xl"
                 placeholder="Full Name"
                 value={address.name}
-                onChange={(e) =>
-                  setAddress({ ...address, name: e.target.value })
-                }
+                onChange={(e) => {
+                  setAddress({ ...address, name: e.target.value });
+                  setError("");
+                }}
               />
+
               <input
                 className="w-full p-3 border rounded-xl"
                 placeholder="Mobile Number"
                 value={address.mobile}
-                onChange={(e) =>
-                  setAddress({ ...address, mobile: e.target.value })
-                }
+                onChange={(e) => {
+                  setAddress({ ...address, mobile: e.target.value });
+                  setError("");
+                }}
               />
+
               <textarea
                 className="w-full p-3 border rounded-xl"
                 placeholder="Full Address"
                 value={address.address}
-                onChange={(e) =>
-                  setAddress({ ...address, address: e.target.value })
-                }
+                onChange={(e) => {
+                  setAddress({ ...address, address: e.target.value });
+                  setError("");
+                }}
               />
             </div>
 
+            {/* ❌ ERROR MESSAGE */}
+            {error && (
+              <p className="text-red-600 mt-3 text-sm">{error}</p>
+            )}
+
             <div className="flex gap-4 mt-6">
-              <button
-                onClick={() => setStep(2)}
-                className="px-5 py-2 bg-gray-300 rounded-xl"
-              >
+              <button onClick={() => setStep(2)} className="bg-gray-300 px-5 py-2 rounded-xl">
                 Back
               </button>
+
               <button
-                onClick={() => setStep(4)}
-                className="px-5 py-2 bg-blue-600 text-white rounded-xl"
+                disabled={!isAddressValid}
+                onClick={() => {
+                  if (!isAddressValid) {
+                    setError("⚠️ Pehle Full Name, Mobile aur Address likho");
+                    return;
+                  }
+                  setStep(4);
+                }}
+                className={`px-5 py-2 rounded-xl text-white ${
+                  !isAddressValid
+                    ? "bg-blue-300 cursor-not-allowed"
+                    : "bg-blue-600"
+                }`}
               >
                 Place Order
               </button>
@@ -189,17 +193,13 @@ export default function BookFlow() {
           </div>
         )}
 
+        {/* STEP 4 */}
         {step === 4 && (
           <div className="text-center">
-            <h2 className="text-2xl font-bold text-green-600 mb-4">
+            <h2 className="text-2xl font-bold text-green-600">
               Order Placed Successfully 🎉
             </h2>
-            <p>Book: {selectedBook.title}</p>
-            <p>Quantity: {quantity}</p>
-            <p>Total: ₹{selectedBook.price * quantity}</p>
-            <p className="mt-3 text-gray-600">
-              Will be delivered to {address.name}
-            </p>
+            <p>Will be delivered to {address.name}</p>
           </div>
         )}
       </div>

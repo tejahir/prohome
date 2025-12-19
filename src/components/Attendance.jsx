@@ -44,10 +44,10 @@ export default function AttendancePage() {
   };
 
   return (
-    <div className="min-h-155 flex items-center text-white justify-center bg-[#0a0f2d]/50 backdrop-blur-xl rounded-2xl border border-white/10 shadow-lg relative overflow-hidden">
-      <div className="w-full max-w-4xl h-150 bg-black p-6 rounded-2xl shadow-xl border border-white/10">
+    <div className="min-w-298 h-146 flex items-center text-white justify-center bg-[#0a0f2d]/50 backdrop-blur-xl rounded-2xl border border-white/10 shadow-lg relative overflow-hidden">
+      <div className="w-full max-w-4xl h-140 bg-black p-6 rounded-2xl shadow-xl border border-white/10">
 
-        <div className="flex items-center justify-between mb-6">
+        <div className="flex items-center justify-between mb-3">
           <h1 className="text-3xl font-bold">Attendance Tracker</h1>
 
           <div className="flex items-center gap-2 bg-[#182243] p-2 px-3 rounded-xl border border-white/10">
@@ -61,8 +61,8 @@ export default function AttendancePage() {
           </div>
         </div>
 
-        <div className="flex items-center gap-3 mb-6 bg-[#182243] p-3 rounded-xl border border-white/10">
-          <Search className="w-5 h-5" />
+        <div className="flex items-center gap-3 mb-4 bg-[#182243] p-2 rounded-xl border border-white/10">
+          <Search className="w-5 h-5 pointer-events-none" />
           <input
             type="text"
             placeholder="Search Employee..."
@@ -71,7 +71,7 @@ export default function AttendancePage() {
             onChange={(e) => setSearch(e.target.value)}
           />
         </div>
-        <div className="grid grid-cols-1 gap-4 h-72 overflow-y-auto pr-2 custom-scroll">
+        <div className="grid grid-cols-1 gap-4 h-68 overflow-y-auto pr-2 custom-scroll">
           {employes
             .filter((s) => s.name.toLowerCase().includes(search.toLowerCase()))
             .map((employe) => (

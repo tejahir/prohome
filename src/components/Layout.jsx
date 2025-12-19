@@ -1,16 +1,25 @@
-import { Outlet } from 'react-router-dom';
-import Navbar from './Navbar';
-import LeftSidebar from './LeftSidebar';
-import Footer from './Footer';
+import { Outlet } from "react-router-dom";
+import Navbar from "./Navbar";
+import LeftSidebar from "./LeftSidebar";
+import Footer from "./Footer";
 
 export default function Layout() {
   return (
-    <>
-      <body className='bg-blue-400'>
+    <div className="min-h-screen bg-blue-400 flex">
+
+
+      <div className="flex-1 flex-col p-5 gap-4">
         <Navbar />
-        <LeftSidebar />
+        
+        
+        <main className="flex gap-5">
+          <LeftSidebar />
+          <Outlet />
+        </main>
+
         <Footer />
-      </body>
-    </>
+      </div>
+
+    </div>
   );
 }

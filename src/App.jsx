@@ -1,10 +1,10 @@
-import { Routes, Route } from 'react-router-dom'
-import Layout from './components/Layout'
-import Dashboard from './components/Dashboard'
-import Game from './components/Game'
-import Attendance from './components/Attendance'
-import Gallery from './components/Gallery'
-import Section from './components/Section'
+import { Routes, Route } from "react-router-dom";
+import Layout from "./components/Layout";
+import Dashboard from "./components/Dashboard";
+import Game from "./components/Game";
+import Attendance from "./components/Attendance";
+import Gallery from "./components/Gallery";
+import Section from "./components/Section";
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
         <Route path="section" element={<Section />} />
       </Route>
     </Routes>
-  )
+  );
 }
 
-export default App
+export default App;

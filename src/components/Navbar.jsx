@@ -17,7 +17,6 @@ export default function Navbar() {
         rounded-xl shadow-lg
       "
     >
-
       <div className="text-gray-300 font-medium flex items-center gap-2">
         <span className="text-sm opacity-80">/</span>
         <span className="text-sm opacity-80">Dashboard</span>
@@ -32,7 +31,7 @@ export default function Navbar() {
           onChange={(e) => setSearchQuery(e.target.value)}
           className="w-full bg-white/10 text-white py-2 pl-10 pr-4 rounded-full outline-none placeholder-gray-300 border border-white/20 focus:border-blue-400 transition-all"
         />
-        <Search className="absolute left-3 top-2.5 text-gray-300" size={18} />
+        <Search className="absolute left-3 top-2.5 text-gray-300 pointer-events-none" size={18} />
       </div>
 
       <div className="flex items-center gap-6 text-gray-200">
@@ -42,7 +41,6 @@ export default function Navbar() {
         </button>
         <Bell size={22} className="hover:text-white transition" />
       </div>
-
     </nav>
   );
 }

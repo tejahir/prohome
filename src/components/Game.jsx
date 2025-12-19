@@ -48,7 +48,7 @@ const Game = () => {
   }
 
   return (
-    <div className=" min-h-146 flex items-center justify-center bg-[#0a0f2d]/50 backdrop-blur-xl rounded-2xl border border-white/10 shadow-lg relative overflow-hidden">
+    <div className="min-w-298 h-146 flex items-center justify-center bg-[#0a0f2d]/50 backdrop-blur-xl rounded-2xl border border-white/10 shadow-lg relative overflow-hidden">
       <div className="w-full max-w-[300px] mx-5">
         <h1 className="text-5xl font-semibold text-white mb-8 text-center">
           Tic Tac Toe

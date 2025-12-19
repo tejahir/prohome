@@ -21,7 +21,7 @@ export default function GalleryPage() {
       : galleryData.filter((item) => item.type === activeTab);
 
   return (
-    <div className="min-h-146 rounded-2xl bg-black text-white p-6">
+    <div className="min-w-298 h-146 rounded-2xl bg-black text-white p-6">
       <div className="flex gap-4 justify-center mb-6">
         {tabs.map((tab) => (
           <button
