@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 export default function GalleryPage() {
   const tabs = ["All", "Images", "Short Videos", "Videos", "Art", "Nature"];
@@ -10,6 +10,7 @@ export default function GalleryPage() {
     { id: 4, type: "Images", src: "https://images.unsplash.com/photo-1498050108023-c5249f4df085" },
     { id: 5, type: "Videos", src: "https://images.unsplash.com/photo-1519389950473-47ba0277781c" },
     { id: 6, type: "Nature", src: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e" },
+    { id: 7, type: "Short Videos", src: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e" },
   ];
 
   const [activeTab, setActiveTab] = useState("All");
@@ -21,7 +22,6 @@ export default function GalleryPage() {
 
   return (
     <div className="min-h-146 rounded-2xl bg-black text-white p-6">
-      {/* TOP FILTER BAR */}
       <div className="flex gap-4 justify-center mb-6">
         {tabs.map((tab) => (
           <button
@@ -38,7 +38,6 @@ export default function GalleryPage() {
         ))}
       </div>
 
-      {/* GALLERY */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
         {filteredData.map((item) => (
           <div

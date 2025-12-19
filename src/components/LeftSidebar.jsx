@@ -17,6 +17,7 @@ export default function LeftSidebar() {
           <Link to="/game" className="block p-2 rounded-lg hover:bg-white/10 cursor-pointer">Game</Link>
           <Link to="/attendance" className="block p-2 rounded-lg hover:bg-white/10 cursor-pointer">Attendance</Link>
           <Link to="/gallery" className="block p-2 rounded-lg hover:bg-white/10 cursor-pointer">Gallery</Link>
+          <Link to="/section" className="block p-2 rounded-lg hover:bg-white/10 cursor-pointer">Section</Link>
 
           <div className="font-semibold rounded-lg bg-blue-700/50 text-white text-xs mt-4 px-2">
             ACCOUNT PAGES

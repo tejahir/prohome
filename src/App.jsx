@@ -4,6 +4,7 @@ import Dashboard from './components/Dashboard'
 import Game from './components/Game'
 import Attendance from './components/Attendance'
 import Gallery from './components/Gallery'
+import Section from './components/Section'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="game" element={<Game />} />
         <Route path="attendance" element={<Attendance />} />
         <Route path="gallery" element={<Gallery />} />
+        <Route path="section" element={<Section />} />
       </Route>
     </Routes>
   )
