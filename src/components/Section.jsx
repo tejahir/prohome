@@ -10,7 +10,7 @@ export default function BookFlow() {
     address: "",
   });
 
-  const [error, setError] = useState(""); // ✅ NEW
+  const [error, setError] = useState("");
 
   const books = [
     {
@@ -54,14 +54,10 @@ export default function BookFlow() {
 
   const [selectedBook, setSelectedBook] = useState(books[0]);
 
-  const isAddressValid =
-    address.name && address.mobile && address.address; // ✅ NEW
-
   return (
     <div className="min-w-298 rounded-2xl h-146 bg-[#0b1225] flex items-center justify-center p-4">
       <div className="w-full max-w-4xl bg-gray-300 rounded-2xl shadow p-6">
 
-        {/* STEPS */}
         <div className="flex justify-between mb-6 text-sm font-medium">
           {["Details", "Buy", "Address", "Confirm"].map((label, i) => (
             <div
@@ -78,7 +74,6 @@ export default function BookFlow() {
           ))}
         </div>
 
-        {/* STEP 1 */}
         {step === 1 && (
           <div>
             <h2 className="text-2xl font-bold mb-6">Books Collection</h2>
@@ -107,25 +102,28 @@ export default function BookFlow() {
           </div>
         )}
 
-        {/* STEP 2 */}
         {step === 2 && (
           <div>
             <h2 className="text-xl font-bold">{selectedBook.title}</h2>
             <p className="mb-4">₹{selectedBook.price}</p>
 
             <div className="flex gap-4 mb-6">
-              <button onClick={() => setQuantity(Math.max(1, quantity - 1))}>-</button>
+              <button onClick={() => setQuantity(Math.max(1, quantity - 1))}>
+                -
+              </button>
               <span>{quantity}</span>
               <button onClick={() => setQuantity(quantity + 1)}>+</button>
             </div>
 
-            <button onClick={() => setStep(3)} className="bg-blue-600 text-white px-5 py-2 rounded-xl">
+            <button
+              onClick={() => setStep(3)}
+              className="bg-blue-600 text-white px-5 py-2 rounded-xl"
+            >
               Continue
             </button>
           </div>
         )}
 
-        {/* STEP 3 */}
         {step === 3 && (
           <div>
             <h2 className="text-xl font-bold mb-4">Delivery Address</h2>
@@ -162,30 +160,46 @@ export default function BookFlow() {
               />
             </div>
 
-            {/* ❌ ERROR MESSAGE */}
             {error && (
-              <p className="text-red-600 mt-3 text-sm">{error}</p>
+              <p className="text-red-600 mt-3 text-sm font-medium">
+                {error}
+              </p>
             )}
 
             <div className="flex gap-4 mt-6">
-              <button onClick={() => setStep(2)} className="bg-gray-300 px-5 py-2 rounded-xl">
+              <button
+                onClick={() => setStep(2)}
+                className="bg-gray-300 px-5 py-2 rounded-xl"
+              >
                 Back
               </button>
 
               <button
-                disabled={!isAddressValid}
                 onClick={() => {
-                  if (!isAddressValid) {
-                    setError("⚠️ Pehle Full Name, Mobile aur Address likho");
+                  if (!address.name.trim()) {
+                    setError("⚠️ Full Name");
                     return;
                   }
+
+                  if (!address.mobile.trim()) {
+                    setError("⚠️ Mobile Number");
+                    return;
+                  }
+
+                  if (address.mobile.length !== 10) {
+                    setError("⚠️ Mobile Number 10 digit");
+                    return;
+                  }
+
+                  if (!address.address.trim()) {
+                    setError("⚠️ Full Address");
+                    return;
+                  }
+
+                  setError("");
                   setStep(4);
                 }}
-                className={`px-5 py-2 rounded-xl text-white ${
-                  !isAddressValid
-                    ? "bg-blue-300 cursor-not-allowed"
-                    : "bg-blue-600"
-                }`}
+                className="bg-blue-600 text-white px-5 py-2 rounded-xl"
               >
                 Place Order
               </button>
@@ -193,7 +207,6 @@ export default function BookFlow() {
           </div>
         )}
 
-        {/* STEP 4 */}
         {step === 4 && (
           <div className="text-center">
             <h2 className="text-2xl font-bold text-green-600">

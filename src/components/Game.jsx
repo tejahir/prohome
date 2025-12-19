@@ -32,7 +32,7 @@ const Game = () => {
     updated[index] = isXTurn ? "X" : "O";
 
     setBoard(updated);
-    setIsXTurn(!isXTurn); // FIXED (pehle yahan galti thi)
+    setIsXTurn(!isXTurn); 
   }
 
   function getGameStats() {

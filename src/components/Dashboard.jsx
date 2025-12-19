@@ -4,7 +4,6 @@ export default function Dashboard() {
   return (
     <div className="flex flex-col min-w-298 h-146 gap-2">
 
-      {/* HERO */}
       <div className="rounded-2xl p-10 relative overflow-hidden bg-blue-400 text-center">
         <h2 className="text-black text-6xl font-bold mb-1">Welcome</h2>
         <h1 className="text-white text-3xl font-extrabold mt-2">
@@ -19,10 +18,8 @@ export default function Dashboard() {
         </h2>
       </div>
 
-      {/* CARDS */}
       <div className="flex flex-row gap-6 items-center justify-center flex-wrap">
 
-        {/* GAME CARD */}
         <div className="w-[550px] text-center bg-[#0a0f2d]/50 backdrop-blur-xl rounded-2xl p-10 border border-white/10 shadow-lg relative overflow-hidden">
           <img
             src="/img/tic-tac-toe-3.avif"
@@ -43,7 +40,6 @@ export default function Dashboard() {
           </button>
         </div>
 
-        {/* ATTENDANCE CARD */}
         <div className="w-[550px] text-center bg-[#0a0f2d]/50 backdrop-blur-xl rounded-2xl p-10 border border-white/10 shadow-lg relative overflow-hidden">
           <img
             src="/img/attendance.jpeg"

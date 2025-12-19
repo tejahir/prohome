@@ -43,7 +43,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Divider */}
         <hr className="border-t border-gray-800 my-8" />
 
         <div>
