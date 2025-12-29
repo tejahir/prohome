@@ -5,6 +5,7 @@ import Game from "./components/Game";
 import Attendance from "./components/Attendance";
 import Gallery from "./components/Gallery";
 import Section from "./components/Section";
+import Profile from "./components/Profile";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="attendance" element={<Attendance />} />
         <Route path="gallery" element={<Gallery />} />
         <Route path="section" element={<Section />} />
+        <Route path="profile" element={<Profile />} />
       </Route>
     </Routes>
   );
