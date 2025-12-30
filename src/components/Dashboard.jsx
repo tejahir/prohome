@@ -42,7 +42,7 @@ export default function Dashboard() {
 
         <div className="w-[550px] text-center bg-[#0a0f2d]/50 backdrop-blur-xl rounded-2xl p-10 border border-white/10 shadow-lg relative overflow-hidden">
           <img
-            src="/img/attendance.jpeg"
+            src="public/img/621e3b9a66d83d63c970eb72_619cef5c40cb89333a33f4e9_template-vignette-ATTENDANCE-SHEET-1200x900.jpeg"
             alt="Attendance"
             className="absolute right-0 bottom-0 rounded-2xl w-32 h-32 opacity-90"
           />

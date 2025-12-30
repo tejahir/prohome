@@ -33,8 +33,12 @@ export default function LeftSidebar() {
         <Link to="/profile" className="block p-1 rounded-lg hover:bg-white/10">
           Profile
         </Link>
-        <div className="p-1 rounded-lg hover:bg-white/10">Sign In</div>
-        <div className="p-1 rounded-lg hover:bg-white/10">Sign Up</div>
+        <Link to="/signIn" className="block p-1 rounded-lg hover:bg-white/10">
+          SignIn
+        </Link>
+        <Link to="/signUp" className="block p-1 rounded-lg hover:bg-white/10">
+          SignUp
+        </Link>
       </div>
 
       <div className="mt-5 p-3 w-60 justify-center items-center bg-gradient-to-br

@@ -1,14 +1,11 @@
 export default function ProfilePortfolio() {
   return (
-    <div className=" bg-[#0b1225] border-r border-white/10 rounded-2xl 
-             min-w-298 h-146 overflow-y-auto
-             [scrollbar-width:none] [-ms-overflow-style:none]
-             [&::-webkit-scrollbar]:hidden">
+    <div className=" bg-[#0b1225] border-r border-white/10 rounded-2xl h-screen flex flex-col">
       
       <header className="bg-gradient-to-br
       from-[#0a4bff] to-[#7a3cff] text-white shrink-0">
-        <div className="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
-          <div className="flex items-center gap-2 font-bold text-2xl">
+        <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+          <div className="flex items-center gap-2 font-bold text-4xl">
             <span>Tejas Ladumor</span>
           </div>
 
@@ -26,7 +23,7 @@ export default function ProfilePortfolio() {
           <img
             src="public/img/TEJAS.jpeg"
             alt="profile"
-            className="w-30 h-30 rounded-full mx-auto"
+            className="w-40 h-40 rounded-full mx-auto"
           />
           <h1 className="text-2xl font-semibold text-blue-600 mt-4">
             Hello, I'm a Web Developer
@@ -34,7 +31,7 @@ export default function ProfilePortfolio() {
           <p className="text-gray-700 mt-2 text-lg">
             I love creating beautiful and functional websites.
           </p>
-          <div className="w-10 h-1 bg-blue-500 mx-auto mt-4"></div>
+          <div className="w-20 h-1 bg-blue-500 mx-auto mt-4"></div>
         </section>
 
         <section
@@ -92,6 +89,8 @@ export default function ProfilePortfolio() {
         </section>
 
         <footer className="text-center text-sm text-white mt-10">
+          <div className="w-30 h-1 bg-blue-500 mx-auto mt-4"></div>
+          <br/>
           © 2025 Tejas Ladumor. All rights reserved.
         </footer>
 

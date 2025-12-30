@@ -6,6 +6,8 @@ import Attendance from "./components/Attendance";
 import Gallery from "./components/Gallery";
 import Section from "./components/Section";
 import Profile from "./components/Profile";
+import SignIn from "./components/SignIn";
+import SignUp from "./components/SignUp";
 
 function App() {
   return (
@@ -16,8 +18,10 @@ function App() {
         <Route path="attendance" element={<Attendance />} />
         <Route path="gallery" element={<Gallery />} />
         <Route path="section" element={<Section />} />
-        <Route path="profile" element={<Profile />} />
       </Route>
+      <Route path="profile" element={<Profile />} />
+      <Route path="signIn" element={<SignIn />} />
+      <Route path="signUp" element={<SignUp />} />
     </Routes>
   );
 }
