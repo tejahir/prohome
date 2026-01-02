@@ -44,9 +44,9 @@ export default function LeftSidebar() {
       <div className="mt-5 p-3 w-60 justify-center items-center bg-gradient-to-br
       from-[#0a4bff] to-[#7a3cff] rounded-xl text-center">
             <div className="text-white font-semibold mb-2">Need help?</div>
-            <button className="bg-white text-black px-3 py-1 rounded-md text-sm font-medium">
+            <Link to="/dOCUMENTATION" className="bg-white text-black px-3 py-1 rounded-md text-sm font-medium">
               DOCUMENTATION
-            </button>
+            </Link>
           </div>
           
     </div>

@@ -8,6 +8,7 @@ import Section from "./components/Section";
 import Profile from "./components/Profile";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
+import DOCUMENTATION from "./components/DOCUMENTATION";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
       <Route path="profile" element={<Profile />} />
       <Route path="signIn" element={<SignIn />} />
       <Route path="signUp" element={<SignUp />} />
+      <Route path="dOCUMENTATION" element={<DOCUMENTATION />} />
     </Routes>
   );
 }
