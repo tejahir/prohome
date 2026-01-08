@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Dashboard() {
   return (
@@ -35,9 +36,11 @@ export default function Dashboard() {
             <br />
             Ask me anything.
           </p>
+          <Link to="/game">
           <button className="mt-6 text-white bg-white/10 px-4 py-2 rounded-full text-sm border border-white/20 hover:bg-white/20 transition">
             Game Page →
           </button>
+          </Link>
         </div>
 
         <div className="w-[550px] text-center bg-[#0a0f2d]/50 backdrop-blur-xl rounded-2xl p-10 border border-white/10 shadow-lg relative overflow-hidden">
@@ -55,9 +58,11 @@ export default function Dashboard() {
             <br />
             Ask me anything.
           </p>
+          <Link to="/attendance">
           <button className="mt-6 text-white bg-white/10 px-4 py-2 rounded-full text-sm border border-white/20 hover:bg-white/20 transition">
             Attendance Page →
           </button>
+          </Link>
         </div>
 
       </div>

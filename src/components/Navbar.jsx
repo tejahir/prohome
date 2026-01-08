@@ -1,6 +1,8 @@
 import { Search, Bell, User } from "lucide-react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import NotificationBell from "./NotificationBell";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -35,11 +37,15 @@ export default function Navbar() {
       </div>
 
       <div className="flex items-center gap-6 text-gray-200">
+        <Link to="/signIn">
         <button className="hover:text-white transition flex items-center gap-1">
           <User size={20} />
           <span className="text-sm font-medium">Sign in</span>
         </button>
-        <Bell size={22} className="hover:text-white transition" />
+        </Link>
+        <div className="flex items-center gap-4">
+        <NotificationBell />
+      </div>     
       </div>
     </nav>
   );
